@@ -1,0 +1,40 @@
+strftime.js
+===========
+
+This is a strftime.js. Yet another Date.prototype.strftime library.
+
+USAGE
+-----
+
+    <script type="text/javascript" src="..."></script>
+    <script type="text/javascript">
+        document.write( Date.new().strftime('%Y-%m-%dT%H:%M:%S') );
+    </script>
+
+FUNCTION MANUAL
+---------------
+
+    Date.prototype.strftime('%Y-%m-%d')
+    Date.prototype.strftime('%Y-%m-%d(%a)', 'ja')
+    Date.prototype.strftime('%Y-%m-%d(%a)', 'en')
+
+You can specify the locale by second parameter.
+
+HOW CAN I ADD MY OWN LOCALE?
+----------------------------
+
+You can add your locale by following:
+
+    Date.prototype.strftime.locales['de'] = {
+        B: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+        b: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+        A: ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
+        a: ["Mo\.", "Di\.", "Mi\.", "Do\.", "Fr\.", "Sa\.", "So\."]
+    };
+
+LICENSE
+------
+
+It's based on Daniel Rench's Date.prototype.strftime library in http://dren.ch/strftime/.
+He releases original version in Public Domain. I also release this modificated code in Public Domain.
+
