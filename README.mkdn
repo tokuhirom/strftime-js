@@ -6,9 +6,9 @@ This is a strftime.js. Yet another Date.prototype.strftime library.
 USAGE
 -----
 
-    <script type="text/javascript" src="..."></script>
+    <script type="text/javascript" src="strftime.js"></script>
     <script type="text/javascript">
-        document.write( Date.new().strftime('%Y-%m-%dT%H:%M:%S') );
+        document.write( (new Date).strftime('%Y-%m-%dT%H:%M:%S') );
     </script>
 
 FUNCTION MANUAL
