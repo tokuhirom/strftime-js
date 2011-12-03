@@ -45,5 +45,31 @@ is(d.strftime('%z'), 'z');
 Date.prototype.strftime.formats.z = function () { return '+0900' };
 is(d.strftime('%z'), '+0900');
 
+// %P %p
+(function () {
+    var d = (new Date(2011, 8, 1, 10, 4, 1));
+    d.setHours(10);
+    is(d.strftime('%p'), 'AM');
+    is(d.strftime('%P'), 'am');
+    is(d.strftime('%r'), '10:04:01 AM');
+    is(d.strftime('%R'), '10:04');
+    is(d.strftime('%s'), '1314839041');
+    is(d.strftime('%S'), '01');
+    is(d.strftime('%t'), "\t");
+    is(d.strftime('%T'), '10:04:01');
+    is(d.strftime('%u'), '4');
+    is(d.strftime('%w'), '4');
+    is(d.strftime('%x'), 'Thu Sep 01 2011');
+    is(d.strftime('%X'), '10:04:01 GMT+0900 (JST)');
+    is(d.strftime('%Y'), '2011');
+    is(d.strftime('%y'), '11');
+    is(d.strftime('%z'), '+0900');
+
+    d.setHours(13);
+    is(d.strftime('%p'), 'PM');
+    is(d.strftime('%P'), 'pm');
+    is(d.strftime('%r'), '01:04:01 PM');
+})();
+
 done_testing();
 

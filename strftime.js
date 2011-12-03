@@ -57,6 +57,21 @@ var formats = {
 		H: function (d) { return pad(d.getHours(), 2,'0'); },
 		I: function (d) { return pad((d.getHours() % 12 || 12), 2); },
         /*
+%g
+like %G, but without the century
+%G
+The 4-digit year corresponding to the ISO week number
+%j
+day of the year as a decimal number (range 001 to 366)
+%U
+week number of the current year as a decimal number, starting with the first Sunday as the first day of the first week
+%V
+The ISO 8601:1988 week number of the current year as a decimal number, range 01 to 53, where week 1 is the first week that has at least 4 days in the current year, and with Monday as the first day of the week.
+%W
+week number of the current year as a decimal number, starting with the first Monday as the first day of the first week
+%Z
+time zone name or abbreviation
+
 		j: function (d) {
 				var t = d.getDate();
 				var m = d.getMonth() - 1;
@@ -75,6 +90,7 @@ var formats = {
 		m: function (d) { return pad((d.getMonth()+1), 2,'0'); },
 		n: function (d) { return "\n"; },
 		p: function (d) { return (d.getHours() > 11) ? 'PM' : 'AM'; },
+		P: function (d) { return formats.p(d).toLowerCase(); },
 		R: function (d) { return formats.H(d) + ':' + formats.M(d); },
 		r: function (d) {
 				return formats.I(d) + ':' + formats.M(d) + ':' +
