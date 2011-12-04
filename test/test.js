@@ -1,3 +1,8 @@
+module("strftime");
+
+test("foo", function () {
+
+var is = equal;
 var d = new Date(2011, 8, 1, 10, 4, 1);
 is(d.strftime('%Y-%m-%d'), '2011-09-01');
 is(d.strftime('%T'), '10:04:01');
@@ -67,3 +72,4 @@ is(d.strftime('%z'), '+0900');
     is(d.strftime('%r'), '01:04:01 PM');
 })();
 
+});
