@@ -137,6 +137,13 @@ You can add your locale by following:
         a: ["Mo\.", "Di\.", "Mi\.", "Do\.", "Fr\.", "Sa\.", "So\."]
     };
 
+HOW CAN I SET MY OWN LOCALE AS DEFAULT?
+---------------------------------------
+
+You can call following method:
+
+    Date.prototype.strftime.setDefaultLocale('ja');
+
 LICENSE
 ------
 

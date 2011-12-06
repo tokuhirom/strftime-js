@@ -125,22 +125,31 @@ time zone name or abbreviation
 formats['+'] = formats.c;
 formats.h = formats.b;
 
-Date.prototype.strftime =
-	function (fmt, locale) {
-		var r = '';
-		var n = 0;
-        if (!locale) { locale = 'en'; }
-		while(n < fmt.length) {
-			var c = fmt.substring(n, n+1);
-			if (c == '%') {
-				c = fmt.substring(++n, n+1);
-				r += (formats[c]) ? formats[c](this, locale) : c;
-			} else r += c;
-			++n;
-		}
-		return r;
-	};
+var defaultLocale = 'en';
+
+function strftime(date, fmt, locale) {
+    var r = '';
+    var n = 0;
+    if (!locale) { locale = defaultLocale; }
+    while(n < fmt.length) {
+        var c = fmt.substring(n, n+1);
+        if (c == '%') {
+            c = fmt.substring(++n, n+1);
+            r += (formats[c]) ? formats[c](date, locale) : c;
+        } else r += c;
+        ++n;
+    }
+    return r;
+}
+
+Date.prototype.strftime = function (fmt, locale) {
+    return strftime(this, fmt, locale);
+};
+
 Date.prototype.strftime.formats = formats;
+Date.prototype.strftime.setDefaultLocale = function (locale) {
+    defaultLocale = locale;
+};
 Date.prototype.strftime.locales = locales;
 
 })();

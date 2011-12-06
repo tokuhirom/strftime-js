@@ -67,3 +67,8 @@ is(d.strftime('%z'), '+0900');
     is(d.strftime('%r'), '01:04:01 PM');
 })();
 
+(function () {
+    Date.prototype.strftime.setDefaultLocale('ja');
+    var d = (new Date(2011, 8, 1, 10, 4, 1));
+    is(d.strftime('%a'), '木');
+})();
